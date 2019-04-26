@@ -1,0 +1,2 @@
+rootProject.name = 'moloco-android-sdk-demo'
+include ':moloco-sample'

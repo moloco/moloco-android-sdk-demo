@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.configuration.compileSdkVersion
+    defaultConfig {
+        applicationId "com.moloco.sample"
+        minSdkVersion rootProject.ext.configuration.minSdkVersion
+        targetSdkVersion rootProject.ext.configuration.targetSdkVersion
+        versionCode rootProject.ext.configuration.versionCode
+        versionName rootProject.ext.configuration.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api 'com.moloco.sdk:moloco-sdk-base:0.0.1@aar'
+    api 'com.moloco.sdk:moloco-sdk-banner:0.0.1@aar'
+
+    // Android supported libraries
+    implementation rootProject.ext.deps.support.appcompat
+    implementation rootProject.ext.deps.support.constraintLayout
+
+    implementation rootProject.ext.deps.rxbinding2.core
+
+    // Instrumentation testing-only dependencies
+    testImplementation rootProject.ext.deps.testingOnly.junit
+    androidTestImplementation rootProject.ext.deps.testingOnly.testRunner
+    androidTestImplementation rootProject.ext.deps.testingOnly.espressoCore
+}

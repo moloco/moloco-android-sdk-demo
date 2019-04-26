@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Moloco Sample App</string>
+    <string name="btn_load_ad">LOAD AD</string>
+
+    <!--<string name="ad_unit_id_banner">b195f8dd8ded45fe847ad89ed1d016da</string>-->
+    <!--<string name="ad_unit_id_banner">dc333e349287446487e624bb1f7d717c</string>-->
+    <!--<string name="ad_unit_id_rolling_banner">timetree_a_test</string>-->
+    <!--<string name="ad_unit_id_rolling_banner">d68fc5bc4bd842c4bd4bcefd931b9828</string>-->
+    <!--<string name="ad_unit_id_middle_banner">d68fc5bc4bd842c4bd4bcefd931b9828</string>-->
+
+    <string name="ad_unit_id_rolling_banner">skt_rolling_banner_test</string>
+    <string name="ad_unit_id_square_banner">skt_square_banner_test</string>
+    <string name="ad_unit_id_middle_banner">skt_middle_banner_test</string>
+</resources>
