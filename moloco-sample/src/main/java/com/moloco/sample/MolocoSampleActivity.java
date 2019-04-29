@@ -35,10 +35,7 @@ public class MolocoSampleActivity extends AppCompatActivity implements BannerAdL
         if (BuildConfig.DEBUG) {
             logLevel = DEBUG;
         }
-        final SdkConfiguration sdkConfiguration = new SdkConfiguration(
-                "b195f8dd8ded45fe847ad89ed1d016da",
-                logLevel
-        );
+        final SdkConfiguration sdkConfiguration = new SdkConfiguration(logLevel);
 
         Moloco.initializeSdk(this, sdkConfiguration);
 

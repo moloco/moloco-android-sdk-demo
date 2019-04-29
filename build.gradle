@@ -19,7 +19,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url 'http://artifacts.adsmoloco.com/artifactory/libs-release-local/' }
     }
 }
 

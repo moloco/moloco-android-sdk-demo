@@ -23,9 +23,22 @@ android {
     }
 }
 
+repositories {
+    google()
+    jcenter()
+    maven { url 'http://artifacts.adsmoloco.com/artifactory/libs-release-local/' }
+}
+
 dependencies {
-    api 'com.moloco.sdk:moloco-sdk-base:0.0.1@aar'
-    api 'com.moloco.sdk:moloco-sdk-banner:0.0.1@aar'
+    implementation 'com.moloco.sdk:moloco-sdk-base:0.0.1@aar'
+    implementation 'com.moloco.sdk:moloco-sdk-banner:0.0.1@aar'
+
+    implementation rootProject.ext.deps.rxjava2
+    implementation rootProject.ext.deps.retrofit.core
+    implementation rootProject.ext.deps.androidGms.playServices
+    implementation rootProject.ext.deps.retrofit.gson
+    implementation rootProject.ext.deps.retrofit.scalars
+    implementation rootProject.ext.deps.retrofit.rxjava
 
     // Android supported libraries
     implementation rootProject.ext.deps.support.appcompat
