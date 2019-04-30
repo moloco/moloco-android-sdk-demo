@@ -30,8 +30,8 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.moloco.sdk:moloco-sdk-base:0.0.1@aar'
-    implementation 'com.moloco.sdk:moloco-sdk-banner:0.0.1@aar'
+    implementation 'com.moloco.sdk:moloco-sdk-base:1.0.0@aar'
+    implementation 'com.moloco.sdk:moloco-sdk-banner:1.0.0@aar'
 
     implementation rootProject.ext.deps.rxjava2
     implementation rootProject.ext.deps.retrofit.core
