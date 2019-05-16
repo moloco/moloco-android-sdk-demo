@@ -45,10 +45,12 @@ ext {
             'espressoCore'                   : "3.0.2",
             'rxbindingCore'                  : "2.2.0",
             'gmsPlayServices'                : "15.0.1",
+            'picasso'                        : "2.71828",
     ]
 
     deps = [
             'rxjava2': "io.reactivex.rxjava2:rxandroid:${ext.libraries.rxandroid}",
+            'picasso': "com.squareup.picasso:picasso:${ext.libraries.picasso}",
             'rxbinding2': [
                     'core': "com.jakewharton.rxbinding2:rxbinding:${ext.libraries.rxbindingCore}",
             ],

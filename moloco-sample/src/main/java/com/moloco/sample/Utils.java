@@ -7,7 +7,8 @@ import android.widget.Toast;
 class Utils {
     static final String LOGTAG = "Moloco Sample App";
 
-    private Utils() {}
+    private Utils() {
+    }
 
     static void logToast(Context context, String message) {
         Log.d(LOGTAG, message);

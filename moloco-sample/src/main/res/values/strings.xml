@@ -11,4 +11,7 @@
     <string name="ad_unit_id_rolling_banner">skt_rolling_banner_test</string>
     <string name="ad_unit_id_square_banner">skt_square_banner_test</string>
     <string name="ad_unit_id_middle_banner">skt_middle_banner_test</string>
+    <string name="ad_unit_id_rolling_native">skt_rolling_native_test</string>
+    <string name="ad_unit_id_square_native">skt_square_native_test</string>
+    <string name="ad_unit_id_middle_native">skt_middle_native_test</string>
 </resources>
