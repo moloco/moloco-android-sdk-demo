@@ -18,8 +18,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 }
 
@@ -30,9 +30,9 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.moloco.sdk:moloco-sdk-base:1.1.0@aar'
-    implementation 'com.moloco.sdk:moloco-sdk-banner:1.1.0@aar'
-    implementation 'com.moloco.sdk:moloco-sdk-native:1.1.0@aar'
+    implementation 'com.moloco.sdk:moloco-sdk-base:1.1.1@aar'
+    implementation 'com.moloco.sdk:moloco-sdk-banner:1.1.1@aar'
+    implementation 'com.moloco.sdk:moloco-sdk-native:1.1.1@aar'
 
     implementation rootProject.ext.deps.picasso
     implementation rootProject.ext.deps.rxjava2
@@ -45,8 +45,6 @@ dependencies {
     // Android supported libraries
     implementation rootProject.ext.deps.support.appcompat
     implementation rootProject.ext.deps.support.constraintLayout
-
-    implementation rootProject.ext.deps.rxbinding2.core
 
     // Instrumentation testing-only dependencies
     testImplementation rootProject.ext.deps.testingOnly.junit

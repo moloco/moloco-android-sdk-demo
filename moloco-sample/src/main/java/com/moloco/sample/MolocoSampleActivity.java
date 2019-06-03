@@ -2,10 +2,10 @@ package com.moloco.sample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.jakewharton.rxbinding2.view.RxView;
 import com.moloco.ads.MolocoView;
 import com.moloco.ads.MolocoView.BannerAdListener;
 import com.moloco.nativeads.MolocoNative;
@@ -66,11 +66,13 @@ public class MolocoSampleActivity extends AppCompatActivity implements BannerAdL
         final String adUnitId = mMolocoSampleAdUnit.getAdUnitId();
         final String squareAdUnitId = mMolocoSquareSampleAdUnit.getAdUnitId();
 
-        RxView.clicks(loadBtn)
-                .subscribe(s -> {
-                    loadMolocoView(mMolocoView, adUnitId);
-                    loadMolocoView(mMolocoSquareView, squareAdUnitId);
-                });
+        loadBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                loadMolocoView(mMolocoView, adUnitId);
+                loadMolocoView(mMolocoSquareView, squareAdUnitId);
+            }
+        });
 
         Button loadMiddleBannerBtn = findViewById(R.id.middle_banner_button);
         mMolocoMiddleView = findViewById(R.id.banner_molocomiddleview);
@@ -80,10 +82,12 @@ public class MolocoSampleActivity extends AppCompatActivity implements BannerAdL
                 .build();
         final String middleAdUnitId = mMolocoMiddleSampleAdUnit.getAdUnitId();
 
-        RxView.clicks(loadMiddleBannerBtn)
-                .subscribe(s -> {
-                    loadMolocoView(mMolocoMiddleView, middleAdUnitId);
-                });
+        loadMiddleBannerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                loadMolocoView(mMolocoMiddleView, middleAdUnitId);
+            }
+        });
 
         mMolocoView.setBannerAdListener(this);
         mMolocoSquareView.setBannerAdListener(this);
@@ -97,10 +101,12 @@ public class MolocoSampleActivity extends AppCompatActivity implements BannerAdL
         SampleNativeListener molocoMiddleNativeListener = new SampleNativeListener(molocoMiddleNativeView);
         mMolocoMiddleNative.setAdListener(molocoMiddleNativeListener);
         Button loadMiddleNativeBannerBtn = findViewById(R.id.middle_native_button);
-        RxView.clicks(loadMiddleNativeBannerBtn)
-                .subscribe(s -> {
-                    mMolocoMiddleNative.loadAd();
-                });
+        loadMiddleNativeBannerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                mMolocoMiddleNative.loadAd();
+            }
+        });
 
         mMolocoRollingNative = new MolocoNative(this, getString(R.string.ad_unit_id_rolling_native));
         ImageView molocoRollingNativeView = (ImageView) findViewById(R.id.rolling_native_image_view);
@@ -113,11 +119,13 @@ public class MolocoSampleActivity extends AppCompatActivity implements BannerAdL
         mMolocoSquareNative.setAdListener(molocoSquareNativeListener);
 
         Button loadNativeBannerBtn = findViewById(R.id.rolling_native_button);
-        RxView.clicks(loadNativeBannerBtn)
-                .subscribe(s -> {
-                    mMolocoRollingNative.loadAd();
-                    mMolocoSquareNative.loadAd();
-                });
+        loadNativeBannerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                mMolocoRollingNative.loadAd();
+                mMolocoSquareNative.loadAd();
+            }
+        });
         // ----------------------------------------------
     }
 
