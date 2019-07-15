@@ -104,6 +104,10 @@ public class MolocoSampleActivity extends AppCompatActivity implements BannerAdL
         loadMiddleNativeBannerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
+                mMolocoMiddleNative.addKeyword("sample1");
+                mMolocoMiddleNative.addKeyword("sample2");
+                mMolocoMiddleNative.addKeyword("sample3");
+                mMolocoMiddleNative.addKeyword("sample3");
                 mMolocoMiddleNative.loadAd();
             }
         });
@@ -137,6 +141,10 @@ public class MolocoSampleActivity extends AppCompatActivity implements BannerAdL
 
     private void loadMolocoView(final MolocoView mView, final String adUnitId) {
         mView.setAdUnitId(adUnitId);
+        mView.addKeyword("sample1");
+        mView.addKeyword("sample2");
+        mView.addKeyword("sample3");
+        mView.addKeyword("sample3");
         mView.loadAd();
     }
 
