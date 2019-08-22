@@ -1,5 +1,9 @@
 package com.moloco.sample;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,6 +12,7 @@ import android.widget.ImageView;
 
 import com.moloco.ads.MolocoView;
 import com.moloco.ads.MolocoView.BannerAdListener;
+import com.moloco.ads.UrlHandler;
 import com.moloco.nativeads.MolocoNative;
 import com.moloco.nativeads.MolocoNative.NativeAdListener;
 import com.moloco.common.Moloco;
@@ -18,13 +23,14 @@ import com.moloco.network.MolocoNativeAdResponse;
 
 import com.squareup.picasso.Picasso;
 
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static com.moloco.common.logging.MLog.LogLevel;
 import static com.moloco.common.logging.MLog.LogLevel.DEBUG;
 import static com.moloco.common.logging.MLog.LogLevel.INFO;
 import static com.moloco.sample.MolocoSampleAdUnit.AdType.BANNER;
 import static com.moloco.sample.Utils.logToast;
 
-public class MolocoSampleActivity extends AppCompatActivity implements BannerAdListener {
+public class MolocoSampleActivity extends AppCompatActivity implements BannerAdListener, UrlHandler {
     private MolocoView mMolocoView;
     private MolocoSampleAdUnit mMolocoSampleAdUnit;
     private MolocoView mMolocoSquareView;
@@ -76,6 +82,7 @@ public class MolocoSampleActivity extends AppCompatActivity implements BannerAdL
 
         Button loadMiddleBannerBtn = findViewById(R.id.middle_banner_button);
         mMolocoMiddleView = findViewById(R.id.banner_molocomiddleview);
+        mMolocoMiddleView.setUrlHandler(this);
         mMolocoMiddleSampleAdUnit = new MolocoSampleAdUnit
                 .Builder(getString(R.string.ad_unit_id_middle_banner), BANNER)
                 .description("Moloco 720x116 Middle Banner Sample")
@@ -202,5 +209,22 @@ public class MolocoSampleActivity extends AppCompatActivity implements BannerAdL
             final String errorMessage = (errorCode != null) ? errorCode.toString() : "";
             logToast(getBaseContext(), getName() + " failed to load: " + errorMessage);
         }
+    }
+
+    @Override
+    public boolean handleResolvedUrl(final Context context,
+                                     final String url,
+                                     Iterable<String> trackingUrls) {
+        if (Uri.parse(url).getHost().equals("https://www.example.com")) {
+            // This is my website, so do not override; let my WebView load the page
+            return false;
+        }
+        // Otherwise, the link is not for a page on my site, so launch another Activity that handles URLs
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        if (!(context instanceof Activity)) {
+            intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
+        }
+        context.startActivity(intent);
+        return true;
     }
 }
